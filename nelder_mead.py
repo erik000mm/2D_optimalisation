@@ -6,18 +6,18 @@ def func(x):
 
 
 def nelder_mead(points, max_iterations=100, tolerance=1e-6):
-    f_points = []
-
-    # Calculating points based on function f
-    for point in points:
-        f_points.append([func(point[0]), point[1]])
-
     for iteration in range(max_iterations):
+        f_points = []
+
+        # Calculating points based on function f
+        for point in points:
+            f_points.append([func(point[0]), point[1]])
+
         # Sort the points
         sorted_f_points = sorted(f_points, key=lambda x: x[0])
 
         if sorted_f_points[-1][0] - sorted_f_points[0][0] < tolerance:
-            print(f"Termination condition met after {iteration} iterations.")
+            print(f'Termination condition met after {iteration} iterations.')
             break
 
         # Worst point based on f
@@ -79,14 +79,6 @@ def nelder_mead(points, max_iterations=100, tolerance=1e-6):
         else:
             points = filtered_array
 
-        f_points = []
-
-        # Calculating points based on function f
-        for point in points:
-            f_points.append([func(point[0]), point[1]])
-
-        print()
-
     return points
 
 points = [[np.array([0, 0]), 'A'], [np.array([2, 0]), 'B'], [np.array([0, 3]), 'C']]
@@ -108,5 +100,4 @@ def find_lowest_point(points):
 
 lowest_point = find_lowest_point(new_points)
 
-# Output the result
-print(f"Lowest Point: {lowest_point[0]}, Objective function minimum value: {func(lowest_point[0])}")
+print(f'Lowest Point: {lowest_point[0]}, Objective function minimum value: {func(lowest_point[0])}')
