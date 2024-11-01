@@ -11,7 +11,7 @@ def gradients(x):
     return np.array([df_dx, df_dy])
 
 
-def descent(x0, alpha=0.1, epsilon=0.0001, max_iterations=1000):
+def descent(x0, alpha=0.1, epsilon=0.0001, max_iterations=100):
     x = x0
 
     for iterations in range(max_iterations):
@@ -26,7 +26,7 @@ def descent(x0, alpha=0.1, epsilon=0.0001, max_iterations=1000):
     return x
 
 
-x0 = np.array([2, 2])
+x0 = np.array([2.0, 2.0])
 minimal_point = descent(x0)
 print(f'Lowest Point: {minimal_point}, Objective function minimum value: {func(minimal_point)}')
         

@@ -19,7 +19,7 @@ def hessian(x):
     return np.array([[df_dxdx, df_dxdy], [df_dxdy, df_dydy]])
 
 
-def newton(x0, tolerance=1e-6, max_iterations=100):
+def newton(x0, tolerance=1e-6, max_iterations=10):
     x = x0
     for _ in range(max_iterations):
         gr = gradients(x)
@@ -32,7 +32,7 @@ def newton(x0, tolerance=1e-6, max_iterations=100):
         
         delta = inverse @ gr
 
-        x = delta
+        x = x - delta
 
     return x
 
