@@ -26,7 +26,7 @@ def newton(x0, tolerance=1e-6, max_iterations=10):
         # dxx, dxy, dyy
         he = hessian(x)
 
-        det_he = np.linalg.det(he) - 0.1575
+        det_he = np.linalg.det(he)
 
         inverse = (1 / det_he) * he
         
