@@ -11,13 +11,14 @@ def gradients(x):
     return np.array([df_dx, df_dy])
 
 
-def descent(x0, alpha=0.1, epsilon=0.0001, max_iterations=100):
+def descent(x0, alpha=0.1, epsilon=0.0001, max_iterations=1000):
     x = x0
 
-    for _ in range(max_iterations):
+    for iterations in range(max_iterations):
         gradient = gradients(x)
 
         if np.linalg.norm(gradient) < epsilon:
+            print(f'Converged after {iterations}')
             return x
         
         x = x - alpha * gradient
